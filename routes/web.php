@@ -22,8 +22,6 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-// Route::view("/login", "welcome")->name("login");
-// Route::view("/register", "welcome")->name("register");
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::resource('items', ItemController::class);
