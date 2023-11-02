@@ -27,11 +27,11 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @forelse ($items as $item)
+                            @forelse ($items as $key => $item)
                                 <tr>
-                                    <td>Item#{{$item->id}}</td>
-                                    <td>{{$item->title}}</td>
-                                    <td>{{$item->price}}</td>
+                                    <td>{{++$key}}</td>
+                                    <td>{{ucfirst($item->title)}}</td>
+                                    <td>{{$item->price}} tk</td>
                                     <td>
                                         <button class="btn btn-sm btn-outline-primary" data-bs-target="#modal-{{$item->id}}" data-bs-toggle="modal"> <i class="fa fa-eye"></i> </button>
                                         
@@ -77,9 +77,9 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-md-6">
-                        <h3><strong>Item:</strong> {{$value->title}}</h3>
+                        <h3><strong>Item:</strong> {{ucfirst($value->title)}}</h3>
                         <h4><strong>Price:</strong> {{$value->price}} TK</h4>
-                        <h4><strong>Description:</strong></h4> <p>{{$value->description}}</p>
+                        <h4><strong>Description:</strong></h4> <p>{{ucfirst($value->description)}}</p>
                     </div>
                     <div class="col-md-6">
                         <img src="{{asset($value->image)}}" alt="image-{{$value->id}}" class="img-fluid mb-5 mx-auto d-block" width="350" height="350"/>
